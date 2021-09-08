@@ -16,6 +16,7 @@ public class TankMove : MonoBehaviour
     private void Update()
     {
         InputKeyboard();
+        Rotation();
     }
 
     private void FixedUpdate()
@@ -40,6 +41,9 @@ public class TankMove : MonoBehaviour
 
     void Rotation()
     {
-        //transform.rotation = new Quaternion()
+        if (movement.x > 0) transform.rotation = Quaternion.Euler(0, 0,-90);
+        if (movement.x < 0) transform.rotation = Quaternion.Euler(0, 0, 90);
+        if (movement.y > 0) transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (movement.y < 0) transform.rotation = Quaternion.Euler(0, 0, 180);
     }
 }
